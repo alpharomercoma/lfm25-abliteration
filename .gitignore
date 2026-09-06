@@ -1,7 +1,8 @@
 .venv-*/
 models/
 export/
-runs/*/*.log
+runs/*/heretic.log
+runs/*/save.log
 runs/*/driver.out
 __pycache__/
 *.pt

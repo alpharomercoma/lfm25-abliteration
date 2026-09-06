@@ -1,0 +1,768 @@
+█░█░█▀▀░█▀▄░█▀▀░▀█▀░█░█▀▀  v2.0.0.dev0
+█▀█░█▀▀░█▀▄░█▀▀░░█░░█░█░░  https://heretic-project.org
+▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀▀▀  https://github.com/p-e-w/heretic
+Detected 1 MPS device(s)
+Driver Version: 26.5.2
+* MPS 0: Apple Metal
+Loading model LiquidAI/LFM2.5-1.2B-Instruct...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+* Trying dtype auto...
+Loading weights:   0%|                                                                                                                                                         | 0/148 [00:00<?, ?it/s]Loading weights:  13%|██████████████████▎                                                                                                                            | 19/148 [00:00<00:00, 141.36it/s]Loading weights:  63%|█████████████████████████████████████████████████████████████████████████████████████████▊                                                     | 93/148 [00:00<00:00, 239.26it/s]Loading weights:  78%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                               | 115/148 [00:00<00:00, 183.89it/s]Loading weights:  90%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌              | 133/148 [00:00<00:00, 152.99it/s]Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 148/148 [00:00<00:00, 188.76it/s]
+* LoRA adapters initialized (target types: out_proj, w2)
+* Transformer model with 16 layers
+* Abliterable components:
+  * attn.o_proj: 16 modules total
+  * mlp.down_proj: 16 modules total
+Resident system RAM: 0.82 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.19 GB
+Loading good prompts from mlabonne/harmless_alpaca...
+* 400 prompts loaded
+Loading bad prompts from mlabonne/harmful_behaviors...
+* 400 prompts loaded
+Determining optimal batch size...
+* Chosen batch size: 128
+Checking for common response prefix...
+* None found
+Loading and initializing scorers...
+* Loaded: KeywordRate 
+* Loaded: KLDivergence 
+Loading Refusals evaluation prompts from mlabonne/harmful_behaviors...
+* 100 prompts loaded
+Loading KL divergence evaluation prompts from mlabonne/harmless_alpaca...
+* 100 prompts loaded
+* Obtaining baseline first-token probability distributions...
+Getting baseline scores...
+* Baseline Refusals: 99/100
+* Baseline KL divergence: 0 (by definition)
+Calculating per-layer residual directions...
+* Obtaining residual mean for good prompts...
+* Obtaining residual mean for bad prompts...
+Running trial 1 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.33
+  * attn.o_proj.max_weight_position = 12.09
+  * attn.o_proj.min_weight = 0.11
+  * attn.o_proj.min_weight_distance = 8.97
+  * mlp.down_proj.max_weight = 0.79
+  * mlp.down_proj.max_weight_position = 13.00
+  * mlp.down_proj.min_weight = 0.15
+  * mlp.down_proj.min_weight_distance = 3.08
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 34/100
+  * KL divergence: 0.0381
+Elapsed time: 49s
+Estimated remaining time: 2h 41m
+Resident system RAM: 0.86 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 2 of 200...
+* Parameters:
+  * direction_index = 10.97
+  * attn.o_proj.max_weight = 1.04
+  * attn.o_proj.max_weight_position = 13.01
+  * attn.o_proj.min_weight = 0.00
+  * attn.o_proj.min_weight_distance = 2.36
+  * mlp.down_proj.max_weight = 0.57
+  * mlp.down_proj.max_weight_position = 12.16
+  * mlp.down_proj.min_weight = 0.09
+  * mlp.down_proj.min_weight_distance = 4.76
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 96/100
+  * KL divergence: 0.0026
+Elapsed time: 1m 41s
+Estimated remaining time: 2h 46m
+Resident system RAM: 0.72 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 3 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 0.87
+  * attn.o_proj.max_weight_position = 12.68
+  * attn.o_proj.min_weight = 0.07
+  * attn.o_proj.min_weight_distance = 5.44
+  * mlp.down_proj.max_weight = 1.04
+  * mlp.down_proj.max_weight_position = 12.35
+  * mlp.down_proj.min_weight = 0.53
+  * mlp.down_proj.min_weight_distance = 2.36
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 52/100
+  * KL divergence: 0.0279
+Elapsed time: 2m 36s
+Estimated remaining time: 2h 50m
+Resident system RAM: 0.68 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 4 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.35
+  * attn.o_proj.max_weight_position = 12.84
+  * attn.o_proj.min_weight = 0.83
+  * attn.o_proj.min_weight_distance = 3.05
+  * mlp.down_proj.max_weight = 0.39
+  * mlp.down_proj.max_weight_position = 9.30
+  * mlp.down_proj.min_weight = 0.27
+  * mlp.down_proj.min_weight_distance = 2.72
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 73/100
+  * KL divergence: 0.0230
+Elapsed time: 3m 35s
+Estimated remaining time: 2h 55m
+Resident system RAM: 0.69 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 5 of 200...
+* Parameters:
+  * direction_index = 11.63
+  * attn.o_proj.max_weight = 1.07
+  * attn.o_proj.max_weight_position = 14.74
+  * attn.o_proj.min_weight = 0.66
+  * attn.o_proj.min_weight_distance = 3.74
+  * mlp.down_proj.max_weight = 0.47
+  * mlp.down_proj.max_weight_position = 9.50
+  * mlp.down_proj.min_weight = 0.46
+  * mlp.down_proj.min_weight_distance = 4.24
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 95/100
+  * KL divergence: 0.0070
+Elapsed time: 4m 43s
+Estimated remaining time: 3h 3m
+Resident system RAM: 0.67 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 6 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.14
+  * attn.o_proj.max_weight_position = 11.49
+  * attn.o_proj.min_weight = 0.97
+  * attn.o_proj.min_weight_distance = 4.87
+  * mlp.down_proj.max_weight = 0.82
+  * mlp.down_proj.max_weight_position = 11.87
+  * mlp.down_proj.min_weight = 0.12
+  * mlp.down_proj.min_weight_distance = 6.39
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 22/100
+  * KL divergence: 0.0571
+Elapsed time: 5m 42s
+Estimated remaining time: 3h 4m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 7 of 200...
+* Parameters:
+  * direction_index = 12.45
+  * attn.o_proj.max_weight = 1.35
+  * attn.o_proj.max_weight_position = 14.60
+  * attn.o_proj.min_weight = 0.51
+  * attn.o_proj.min_weight_distance = 1.94
+  * mlp.down_proj.max_weight = 1.24
+  * mlp.down_proj.max_weight_position = 10.53
+  * mlp.down_proj.min_weight = 0.74
+  * mlp.down_proj.min_weight_distance = 5.36
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 69/100
+  * KL divergence: 0.0331
+Elapsed time: 6m 45s
+Estimated remaining time: 3h 6m
+Resident system RAM: 0.70 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 8 of 200...
+* Parameters:
+  * direction_index = 8.55
+  * attn.o_proj.max_weight = 1.11
+  * attn.o_proj.max_weight_position = 11.51
+  * attn.o_proj.min_weight = 0.67
+  * attn.o_proj.min_weight_distance = 1.37
+  * mlp.down_proj.max_weight = 1.41
+  * mlp.down_proj.max_weight_position = 13.08
+  * mlp.down_proj.min_weight = 0.45
+  * mlp.down_proj.min_weight_distance = 4.18
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 98/100
+  * KL divergence: 0.0079
+Elapsed time: 7m 47s
+Estimated remaining time: 3h 6m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 9 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.20
+  * attn.o_proj.max_weight_position = 9.50
+  * attn.o_proj.min_weight = 0.13
+  * attn.o_proj.min_weight_distance = 2.62
+  * mlp.down_proj.max_weight = 0.93
+  * mlp.down_proj.max_weight_position = 11.43
+  * mlp.down_proj.min_weight = 0.44
+  * mlp.down_proj.min_weight_distance = 3.73
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 37/100
+  * KL divergence: 0.0434
+Elapsed time: 8m 56s
+Estimated remaining time: 3h 9m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 10 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.00
+  * attn.o_proj.max_weight_position = 11.54
+  * attn.o_proj.min_weight = 0.85
+  * attn.o_proj.min_weight_distance = 3.10
+  * mlp.down_proj.max_weight = 0.91
+  * mlp.down_proj.max_weight_position = 10.07
+  * mlp.down_proj.min_weight = 0.84
+  * mlp.down_proj.min_weight_distance = 6.25
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 26/100
+  * KL divergence: 0.0988
+Elapsed time: 9m 59s
+Estimated remaining time: 3h 9m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 11 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 0.92
+  * attn.o_proj.max_weight_position = 12.46
+  * attn.o_proj.min_weight = 0.10
+  * attn.o_proj.min_weight_distance = 2.86
+  * mlp.down_proj.max_weight = 0.86
+  * mlp.down_proj.max_weight_position = 14.02
+  * mlp.down_proj.min_weight = 0.58
+  * mlp.down_proj.min_weight_distance = 8.28
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 56/100
+  * KL divergence: 0.0645
+Elapsed time: 10m 59s
+Estimated remaining time: 3h 8m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 12 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.10
+  * attn.o_proj.max_weight_position = 11.24
+  * attn.o_proj.min_weight = 0.47
+  * attn.o_proj.min_weight_distance = 8.65
+  * mlp.down_proj.max_weight = 0.77
+  * mlp.down_proj.max_weight_position = 14.20
+  * mlp.down_proj.min_weight = 0.36
+  * mlp.down_proj.min_weight_distance = 4.43
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 32/100
+  * KL divergence: 0.0431
+Elapsed time: 12m 0s
+Estimated remaining time: 3h 7m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 13 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.08
+  * attn.o_proj.max_weight_position = 13.15
+  * attn.o_proj.min_weight = 0.56
+  * attn.o_proj.min_weight_distance = 1.23
+  * mlp.down_proj.max_weight = 0.10
+  * mlp.down_proj.max_weight_position = 13.25
+  * mlp.down_proj.min_weight = 0.02
+  * mlp.down_proj.min_weight_distance = 1.22
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 98/100
+  * KL divergence: 0.0017
+Elapsed time: 13m 1s
+Estimated remaining time: 3h 7m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 14 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.03
+  * attn.o_proj.max_weight_position = 9.05
+  * attn.o_proj.min_weight = 1.02
+  * attn.o_proj.min_weight_distance = 4.70
+  * mlp.down_proj.max_weight = 0.07
+  * mlp.down_proj.max_weight_position = 14.83
+  * mlp.down_proj.min_weight = 0.00
+  * mlp.down_proj.min_weight_distance = 1.49
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 66/100
+  * KL divergence: 0.0288
+Elapsed time: 14m 5s
+Estimated remaining time: 3h 7m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 15 of 200...
+* Parameters:
+  * direction_index = 6.66
+  * attn.o_proj.max_weight = 1.00
+  * attn.o_proj.max_weight_position = 14.14
+  * attn.o_proj.min_weight = 0.43
+  * attn.o_proj.min_weight_distance = 6.15
+  * mlp.down_proj.max_weight = 1.12
+  * mlp.down_proj.max_weight_position = 13.01
+  * mlp.down_proj.min_weight = 0.28
+  * mlp.down_proj.min_weight_distance = 5.01
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 98/100
+  * KL divergence: 0.0028
+Elapsed time: 15m 6s
+Estimated remaining time: 3h 6m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 16 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.02
+  * attn.o_proj.max_weight_position = 14.53
+  * attn.o_proj.min_weight = 0.80
+  * attn.o_proj.min_weight_distance = 8.50
+  * mlp.down_proj.max_weight = 1.04
+  * mlp.down_proj.max_weight_position = 9.00
+  * mlp.down_proj.min_weight = 0.52
+  * mlp.down_proj.min_weight_distance = 1.63
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 52/100
+  * KL divergence: 0.0407
+Elapsed time: 16m 6s
+Estimated remaining time: 3h 5m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 17 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.13
+  * attn.o_proj.max_weight_position = 9.24
+  * attn.o_proj.min_weight = 0.61
+  * attn.o_proj.min_weight_distance = 5.22
+  * mlp.down_proj.max_weight = 0.79
+  * mlp.down_proj.max_weight_position = 10.46
+  * mlp.down_proj.min_weight = 0.10
+  * mlp.down_proj.min_weight_distance = 3.84
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 23/100
+  * KL divergence: 0.0453
+Elapsed time: 17m 13s
+Estimated remaining time: 3h 5m
+Resident system RAM: 0.70 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 18 of 200...
+* Parameters:
+  * direction_index = 7.55
+  * attn.o_proj.max_weight = 1.34
+  * attn.o_proj.max_weight_position = 14.24
+  * attn.o_proj.min_weight = 0.96
+  * attn.o_proj.min_weight_distance = 8.63
+  * mlp.down_proj.max_weight = 1.03
+  * mlp.down_proj.max_weight_position = 14.56
+  * mlp.down_proj.min_weight = 0.33
+  * mlp.down_proj.min_weight_distance = 1.40
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 95/100
+  * KL divergence: 0.0088
+Elapsed time: 18m 17s
+Estimated remaining time: 3h 4m
+Resident system RAM: 0.66 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 19 of 200...
+* Parameters:
+  * direction_index = 8.86
+  * attn.o_proj.max_weight = 1.35
+  * attn.o_proj.max_weight_position = 9.31
+  * attn.o_proj.min_weight = 0.31
+  * attn.o_proj.min_weight_distance = 1.91
+  * mlp.down_proj.max_weight = 1.38
+  * mlp.down_proj.max_weight_position = 11.78
+  * mlp.down_proj.min_weight = 0.77
+  * mlp.down_proj.min_weight_distance = 6.86
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 87/100
+  * KL divergence: 0.0462
+Elapsed time: 19m 25s
+Estimated remaining time: 3h 4m
+Resident system RAM: 0.69 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 20 of 200...
+* Parameters:
+  * direction_index = 10.27
+  * attn.o_proj.max_weight = 1.00
+  * attn.o_proj.max_weight_position = 11.89
+  * attn.o_proj.min_weight = 0.85
+  * attn.o_proj.min_weight_distance = 6.01
+  * mlp.down_proj.max_weight = 1.39
+  * mlp.down_proj.max_weight_position = 14.90
+  * mlp.down_proj.min_weight = 1.20
+  * mlp.down_proj.min_weight_distance = 5.46
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 37/100
+  * KL divergence: 0.0279
+Elapsed time: 20m 24s
+Estimated remaining time: 3h 3m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 21 of 200...
+* Parameters:
+  * direction_index = 11.08
+  * attn.o_proj.max_weight = 0.89
+  * attn.o_proj.max_weight_position = 9.11
+  * attn.o_proj.min_weight = 0.66
+  * attn.o_proj.min_weight_distance = 4.26
+  * mlp.down_proj.max_weight = 1.21
+  * mlp.down_proj.max_weight_position = 10.67
+  * mlp.down_proj.min_weight = 0.26
+  * mlp.down_proj.min_weight_distance = 4.38
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 28/100
+  * KL divergence: 0.0260
+Elapsed time: 21m 28s
+Estimated remaining time: 3h 2m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 22 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.02
+  * attn.o_proj.max_weight_position = 11.93
+  * attn.o_proj.min_weight = 0.31
+  * attn.o_proj.min_weight_distance = 2.81
+  * mlp.down_proj.max_weight = 0.52
+  * mlp.down_proj.max_weight_position = 13.67
+  * mlp.down_proj.min_weight = 0.13
+  * mlp.down_proj.min_weight_distance = 2.61
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 95/100
+  * KL divergence: 0.0098
+Elapsed time: 22m 29s
+Estimated remaining time: 3h 1m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 23 of 200...
+* Parameters:
+  * direction_index = 8.90
+  * attn.o_proj.max_weight = 0.86
+  * attn.o_proj.max_weight_position = 13.55
+  * attn.o_proj.min_weight = 0.50
+  * attn.o_proj.min_weight_distance = 2.95
+  * mlp.down_proj.max_weight = 0.59
+  * mlp.down_proj.max_weight_position = 11.87
+  * mlp.down_proj.min_weight = 0.21
+  * mlp.down_proj.min_weight_distance = 1.07
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 98/100
+  * KL divergence: 0.0014
+Elapsed time: 23m 22s
+Estimated remaining time: 2h 59m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 24 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.28
+  * attn.o_proj.max_weight_position = 9.75
+  * attn.o_proj.min_weight = 0.30
+  * attn.o_proj.min_weight_distance = 5.78
+  * mlp.down_proj.max_weight = 1.40
+  * mlp.down_proj.max_weight_position = 11.98
+  * mlp.down_proj.min_weight = 0.63
+  * mlp.down_proj.min_weight_distance = 4.32
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 7/100
+  * KL divergence: 0.0815
+Elapsed time: 24m 22s
+Estimated remaining time: 2h 58m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 25 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.17
+  * attn.o_proj.max_weight_position = 11.79
+  * attn.o_proj.min_weight = 0.29
+  * attn.o_proj.min_weight_distance = 6.58
+  * mlp.down_proj.max_weight = 0.96
+  * mlp.down_proj.max_weight_position = 10.90
+  * mlp.down_proj.min_weight = 0.71
+  * mlp.down_proj.min_weight_distance = 6.67
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 11/100
+  * KL divergence: 0.0950
+Elapsed time: 25m 24s
+Estimated remaining time: 2h 57m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 26 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.09
+  * attn.o_proj.max_weight_position = 12.23
+  * attn.o_proj.min_weight = 0.50
+  * attn.o_proj.min_weight_distance = 5.16
+  * mlp.down_proj.max_weight = 0.07
+  * mlp.down_proj.max_weight_position = 9.03
+  * mlp.down_proj.min_weight = 0.06
+  * mlp.down_proj.min_weight_distance = 5.08
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 84/100
+  * KL divergence: 0.0138
+Elapsed time: 26m 21s
+Estimated remaining time: 2h 56m
+Resident system RAM: 0.67 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 27 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 0.89
+  * attn.o_proj.max_weight_position = 11.13
+  * attn.o_proj.min_weight = 0.35
+  * attn.o_proj.min_weight_distance = 8.86
+  * mlp.down_proj.max_weight = 1.16
+  * mlp.down_proj.max_weight_position = 9.09
+  * mlp.down_proj.min_weight = 0.67
+  * mlp.down_proj.min_weight_distance = 7.48
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 10/100
+  * KL divergence: 0.1203
+Elapsed time: 27m 26s
+Estimated remaining time: 2h 55m
+Resident system RAM: 0.65 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 28 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 0.81
+  * attn.o_proj.max_weight_position = 13.68
+  * attn.o_proj.min_weight = 0.07
+  * attn.o_proj.min_weight_distance = 8.27
+  * mlp.down_proj.max_weight = 0.00
+  * mlp.down_proj.max_weight_position = 13.74
+  * mlp.down_proj.min_weight = 0.00
+  * mlp.down_proj.min_weight_distance = 4.31
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 95/100
+  * KL divergence: 0.0048
+Elapsed time: 28m 22s
+Estimated remaining time: 2h 54m
+Resident system RAM: 0.65 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 29 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.29
+  * attn.o_proj.max_weight_position = 12.26
+  * attn.o_proj.min_weight = 0.97
+  * attn.o_proj.min_weight_distance = 8.79
+  * mlp.down_proj.max_weight = 1.46
+  * mlp.down_proj.max_weight_position = 13.47
+  * mlp.down_proj.min_weight = 0.25
+  * mlp.down_proj.min_weight_distance = 3.39
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 13/100
+  * KL divergence: 0.0712
+Elapsed time: 29m 19s
+Estimated remaining time: 2h 52m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 30 of 200...
+* Parameters:
+  * direction_index = 11.63
+  * attn.o_proj.max_weight = 1.39
+  * attn.o_proj.max_weight_position = 10.66
+  * attn.o_proj.min_weight = 0.21
+  * attn.o_proj.min_weight_distance = 4.64
+  * mlp.down_proj.max_weight = 1.02
+  * mlp.down_proj.max_weight_position = 11.21
+  * mlp.down_proj.min_weight = 0.42
+  * mlp.down_proj.min_weight_distance = 4.55
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 32/100
+  * KL divergence: 0.0342
+Elapsed time: 30m 21s
+Estimated remaining time: 2h 51m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 31 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.03
+  * attn.o_proj.max_weight_position = 9.63
+  * attn.o_proj.min_weight = 0.57
+  * attn.o_proj.min_weight_distance = 4.70
+  * mlp.down_proj.max_weight = 0.28
+  * mlp.down_proj.max_weight_position = 11.95
+  * mlp.down_proj.min_weight = 0.01
+  * mlp.down_proj.min_weight_distance = 5.94
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 63/100
+  * KL divergence: 0.0265
+Elapsed time: 31m 21s
+Estimated remaining time: 2h 50m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 32 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.26
+  * attn.o_proj.max_weight_position = 9.51
+  * attn.o_proj.min_weight = 0.48
+  * attn.o_proj.min_weight_distance = 6.60
+  * mlp.down_proj.max_weight = 0.11
+  * mlp.down_proj.max_weight_position = 14.75
+  * mlp.down_proj.min_weight = 0.07
+  * mlp.down_proj.min_weight_distance = 6.24
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 49/100
+  * KL divergence: 0.0311
+Elapsed time: 32m 22s
+Estimated remaining time: 2h 49m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 33 of 200...
+* Parameters:
+  * direction_index = 11.92
+  * attn.o_proj.max_weight = 1.03
+  * attn.o_proj.max_weight_position = 9.07
+  * attn.o_proj.min_weight = 0.06
+  * attn.o_proj.min_weight_distance = 1.45
+  * mlp.down_proj.max_weight = 1.13
+  * mlp.down_proj.max_weight_position = 9.40
+  * mlp.down_proj.min_weight = 0.15
+  * mlp.down_proj.min_weight_distance = 1.65
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 97/100
+  * KL divergence: 0.0048
+Elapsed time: 33m 21s
+Estimated remaining time: 2h 48m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 34 of 200...
+* Parameters:
+  * direction_index = 9.59
+  * attn.o_proj.max_weight = 1.37
+  * attn.o_proj.max_weight_position = 12.08
+  * attn.o_proj.min_weight = 1.24
+  * attn.o_proj.min_weight_distance = 5.40
+  * mlp.down_proj.max_weight = 1.40
+  * mlp.down_proj.max_weight_position = 12.70
+  * mlp.down_proj.min_weight = 0.97
+  * mlp.down_proj.min_weight_distance = 1.20
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 76/100
+  * KL divergence: 0.0160
+Elapsed time: 34m 13s
+Estimated remaining time: 2h 47m
+Resident system RAM: 0.71 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.21 GB
+Running trial 35 of 200...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.06
+  * attn.o_proj.max_weight_position = 12.52
+  * attn.o_proj.min_weight = 0.65
+  * attn.o_proj.min_weight_distance = 1.72
+  * mlp.down_proj.max_weight = 0.00
+  * mlp.down_proj.max_weight_position = 10.53
+  * mlp.down_proj.min_weight = 0.00
+  * mlp.down_proj.min_weight_distance = 5.81
+* Resetting model...
+* Abliterating...
+* Evaluating...

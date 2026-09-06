@@ -1,0 +1,77 @@
+█░█░█▀▀░█▀▄░█▀▀░▀█▀░█░█▀▀  v2.0.0.dev0
+█▀█░█▀▀░█▀▄░█▀▀░░█░░█░█░░  https://heretic-project.org
+▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀▀▀  https://github.com/p-e-w/heretic
+Detected 1 MPS device(s)
+Driver Version: 26.5.2
+* MPS 0: Apple Metal
+Loading model LiquidAI/LFM2.5-1.2B-Instruct...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+* Trying dtype auto...
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:  59%|█████▉    | 88/148 [00:00<00:00, 676.44it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 312.20it/s]
+* LoRA adapters initialized (target types: out_proj, w2)
+* Transformer model with 16 layers
+* Abliterable components:
+  * attn.o_proj: 16 modules total
+  * mlp.down_proj: 16 modules total
+Resident system RAM: 0.77 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.19 GB
+Loading good prompts from mlabonne/harmless_alpaca...
+* 400 prompts loaded
+Loading bad prompts from mlabonne/harmful_behaviors...
+* 400 prompts loaded
+Determining optimal batch size...
+* Chosen batch size: 128
+Checking for common response prefix...
+* None found
+Loading and initializing scorers...
+* Loaded: KeywordRate 
+* Loaded: KLDivergence 
+Loading Refusals evaluation prompts from mlabonne/harmful_behaviors...
+* 100 prompts loaded
+Loading KL divergence evaluation prompts from mlabonne/harmless_alpaca...
+* 100 prompts loaded
+* Obtaining baseline first-token probability distributions...
+Getting baseline scores...
+* Baseline Refusals: 99/100
+* Baseline KL divergence: 0 (by definition)
+Calculating per-layer residual directions...
+* Obtaining residual mean for good prompts...
+* Obtaining residual mean for bad prompts...
+Running trial 1 of 2...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 0.98
+  * attn.o_proj.max_weight_position = 14.96
+  * attn.o_proj.min_weight = 0.06
+  * attn.o_proj.min_weight_distance = 3.13
+  * mlp.down_proj.max_weight = 0.00
+  * mlp.down_proj.max_weight_position = 13.58
+  * mlp.down_proj.min_weight = 0.00
+  * mlp.down_proj.min_weight_distance = 8.06
+* Resetting model...
+* Abliterating...
+* Evaluating...
+  * Refusals: 98/100
+  * KL divergence: 0.0016
+Elapsed time: 54s
+Estimated remaining time: 54s
+Resident system RAM: 0.62 GB
+Allocated MPS memory: 0.00 GB
+Driver (reserved) MPS memory: 2.20 GB
+Running trial 2 of 2...
+* Parameters:
+  * direction_index = per layer
+  * attn.o_proj.max_weight = 1.13
+  * attn.o_proj.max_weight_position = 13.91
+  * attn.o_proj.min_weight = 0.10
+  * attn.o_proj.min_weight_distance = 2.41
+  * mlp.down_proj.max_weight = 1.15
+  * mlp.down_proj.max_weight_position = 9.76
+  * mlp.down_proj.min_weight = 0.15
+  * mlp.down_proj.min_weight_distance = 6.16
+* Resetting model...
+* Abliterating...
+* Evaluating...
+/Users/alpha/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
