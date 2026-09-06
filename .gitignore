@@ -1,0 +1,12 @@
+.venv-*/
+models/
+export/
+runs/*/*.log
+runs/*/driver.out
+__pycache__/
+*.pt
+*.pte
+.env
+publish.out
+setup.log
+*.out

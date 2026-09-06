@@ -1,0 +1,5 @@
+# heretic pinned to a git commit: the unattended flags (--checkpoint-action, --trial-index, --model-action,
+# --save-directory, --export-strategy) are not in the 1.4.0 PyPI release yet.
+heretic-llm @ git+https://github.com/p-e-w/heretic@3521f8648a0dccf6e12a92666862632235fac7e6
+pexpect
+huggingface_hub
