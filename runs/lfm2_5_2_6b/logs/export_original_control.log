@@ -1,0 +1,342 @@
+== convert HF safetensors -> Meta format
+loaded 266 tensors from /home/alpha/.cache/huggingface/hub/models--LiquidAI--LFM2.5-2.6B/snapshots/654f9463ce32b05d0429d76fe1f580b27d4c1ac0
+saved /home/alpha/lfm25-abliteration/export/lfm2_5_2_6b_original_q4_meta.pt
+== export_llm (XNNPACK, 8da4w, ctx=4096)
+I tokenizers:regex.cpp:27] Registering override fallback regex
+[2026-09-06 16:20:10,626][root][INFO] - Applying quantizers: []
+[2026-09-06 16:20:10,876][root][INFO] - Checkpoint dtype: torch.bfloat16
+[2026-09-06 16:24:08,699][root][INFO] - Looking for libcustom_ops_aot_lib.so in /home/alpha/lfm25-abliteration/.venv-et/lib/python3.12/site-packages/executorch/extension/llm/custom_ops
+[2026-09-06 16:24:08,699][root][INFO] - Loading custom ops library: /home/alpha/lfm25-abliteration/.venv-et/lib/python3.12/site-packages/executorch/extension/llm/custom_ops/libcustom_ops_aot_lib.so
+[2026-09-06 16:24:08,707][root][INFO] - Replacing KVCache with CustomKVCache. This modifies the model in place.
+[2026-09-06 16:24:09,458][root][INFO] - Model after source transforms: Transformer(
+  (tok_embeddings): Embedding(128000, 2048)
+  (layers): ModuleList(
+    (0-1): 2 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (2): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (3-4): 2 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (5): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (6-8): 3 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (9): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (10-12): 3 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (13): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (14-16): 3 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (17): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (18-20): 3 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (21): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (22-23): 2 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (24): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (25-26): 2 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+    (27): TransformerBlock(
+      (attention): AttentionMHA(
+        (q_norm_fn): RMSNorm()
+        (k_norm_fn): RMSNorm()
+        (wq): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wk): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wv): Linear(in_features=2048, out_features=512, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([512, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (wo): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (rope): Rope()
+        (kv_cache): CustomKVCache()
+        (SDPA): SDPACustom()
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+    (28-29): 2 x ShortConvBlock(
+      (conv): ShortConv(
+        (conv): Conv1d(2048, 2048, kernel_size=(3,), stride=(1,), groups=2048, bias=False)
+        (B_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (C_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (x_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (out_proj): Linear(in_features=2048, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w2): Linear(in_features=10752, out_features=2048, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([2048, 10752]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+        (w3): Linear(in_features=2048, out_features=10752, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([10752, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+      )
+      (ffn_norm): RMSNorm()
+      (attention_norm): RMSNorm()
+    )
+  )
+  (rope): Rope()
+  (norm): RMSNorm()
+  (output): Linear(in_features=2048, out_features=128000, bias=False, weight=IntxUnpackedToInt8Tensor(target_dtype=torch.int4, block_size=(1, 128), shape=torch.Size([128000, 2048]), dtype=torch.float32, device=cpu, activation_quantization=int8_asym_per_token))
+)
+[2026-09-06 16:24:09,459][root][INFO] - Exporting with:
+[2026-09-06 16:24:09,460][root][INFO] - inputs: (tensor([[2, 3, 4]]), {'input_pos': tensor([0])})
+[2026-09-06 16:24:09,460][root][INFO] - kwargs: None
+[2026-09-06 16:24:09,460][root][INFO] - dynamic shapes: ({1: Dim('token_dim', min=0, max=4095)}, {'input_pos': {0: 1}})
+  return node.target(*args, **kwargs)  # type: ignore[operator]
+  return target(*args, **kwargs)
+[2026-09-06 16:24:39,958][root][INFO] - Running canonical pass: RemoveRedundantTransposes
+[2026-09-06 16:24:40,055][root][INFO] - Lowering model using following partitioner(s): 
+[2026-09-06 16:24:40,055][root][INFO] - --> XnnpackDynamicallyQuantizedPartitioner
+[2026-09-06 16:24:40,055][root][INFO] - --> XnnpackPartitioner
+[2026-09-06 16:24:40,055][root][INFO] - Using pt2e [] to quantizing the model...
+[2026-09-06 16:24:40,055][root][INFO] - No quantizer provided, passing...
+[2026-09-06 16:24:40,055][root][INFO] - Re-exporting with:
+[2026-09-06 16:24:40,056][root][INFO] - inputs: (tensor([[2, 3, 4]]), {'input_pos': tensor([0])})
+[2026-09-06 16:24:40,056][root][INFO] - kwargs: None
+[2026-09-06 16:24:40,056][root][INFO] - dynamic shapes: ({1: Dim('token_dim', min=0, max=4095)}, {'input_pos': {0: 1}})
+  warnings.warn(
+[2026-09-06 16:29:48,113][root][INFO] - Required memory for activation in bytes: [0, 713283648]
+[2026-09-06 16:29:48,733][root][INFO] - Saved exported program to lfm2_5_2_6b_original_8da4w.pte
+-rw-rw-r-- 1 alpha alpha 2445033088 Sep  6 16:29 /home/alpha/lfm25-abliteration/export/lfm2_5_2_6b_original_8da4w.pte

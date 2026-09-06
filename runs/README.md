@@ -1,10 +1,10 @@
 # Run records
 
 Both runs were executed on 2026-09-06 on an RTX PRO 6000 Blackwell (heretic pinned to commit 3521f86,
-default `config.toml`, 200 trials). The VM was deleted before the repo was pushed, so the optuna journals
-(`checkpoints/*.jsonl`) are lost; the Pareto fronts below were recovered from the published models, which
-carry them as `heretic_pareto_front.txt`. Re-running `make abliterate` regenerates a journal (TPE is seeded
-only if `seed` is set in `configs/heretic.toml`, so trial numbers will differ).
+default `config.toml`, 200 trials). Each run directory holds the optuna journal (`checkpoints/*.jsonl`, every trial with parameters and scores;
+`make pareto` reads it), the heretic config used, the Pareto front with the selected index, a short
+`heretic_summary.md`, and `logs/` with the cleaned heretic, save, export and publish logs. `setup.log` is the
+environment build. `mac-partial-1_2b/` is the aborted first attempt on the MacBook (MPS).
 
 | run | base model | published | selected | refusals | KL |
 |---|---|---|---|---|---|

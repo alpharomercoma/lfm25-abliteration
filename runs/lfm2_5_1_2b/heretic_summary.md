@@ -1,4 +1,4 @@
-# lfm2_5_1_2b — run summary (reconstructed from session capture; raw heretic.log lost with the VM)
+# lfm2_5_1_2b — run summary (condensed; full logs in logs/, journal in checkpoints/)
 
 - Date: 2026-09-06, RTX PRO 6000 Blackwell 96 GB, heretic @3521f86, torch 2.14.0+cu130, default config.toml
 - Model: LiquidAI/LFM2.5-1.2B-Instruct, bf16

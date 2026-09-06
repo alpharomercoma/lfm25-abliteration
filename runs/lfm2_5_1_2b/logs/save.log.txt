@@ -1,0 +1,149 @@
+█░█░█▀▀░█▀▄░█▀▀░▀█▀░█░█▀▀  v2.0.0.dev0
+█▀█░█▀▀░█▀▄░█▀▀░░█░░█░█░░  https://heretic-project.org
+▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀░▀▀▀  https://github.com/p-e-w/heretic
+Detected 1 CUDA device(s) (94.97 GB total VRAM)
+CUDA Version: 13.0
+Driver Version: 580.126.09
+* CUDA 0: NVIDIA RTX PRO 6000 Blackwell Server Edition (94.97 GB)
+Loading model LiquidAI/LFM2.5-1.2B-Instruct...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+* Trying dtype auto...
+* LoRA adapters initialized (target types: out_proj, w2)
+* Transformer model with 16 layers
+* Abliterable components:
+  * attn.o_proj: 16 modules total
+  * mlp.down_proj: 16 modules total
+Resident system RAM: 1.94 GB
+Allocated GPU VRAM: 2.21 GB
+Reserved GPU VRAM: 2.21 GB
+Loading good prompts from mlabonne/harmless_alpaca...
+* 400 prompts loaded
+Loading bad prompts from mlabonne/harmful_behaviors...
+* 400 prompts loaded
+Loading and initializing scorers...
+* Loaded: KeywordRate 
+* Loaded: KLDivergence 
+Loading Refusals evaluation prompts from mlabonne/harmful_behaviors...
+* 100 prompts loaded
+Loading KL divergence evaluation prompts from mlabonne/harmless_alpaca...
+* 100 prompts loaded
+* Obtaining baseline first-token probability distributions...
+Getting baseline scores...
+* Baseline Refusals: 98/100
+* Baseline KL divergence: 0 (by definition)
+Calculating per-layer residual directions...
+* Obtaining residual mean for good prompts...
+* Obtaining residual mean for bad prompts...
+Resuming existing study.
+Optimization finished!
+The following trials resulted in Pareto optimal combinations of the optimization objectives. After selecting a trial, you will be able to save the model, upload it to Hugging Face, chat with it to 
+test how well it works, or run standard benchmarks on it. You can return to this menu later to select a different trial. 
+? Which trial do you want to use? (Use arrow keys)
+ » [Trial 134] Refusals: 6/100, KL divergence: 0.0527
+   [Trial 151] Refusals: 7/100, KL divergence: 0.0402
+   [Trial 158] Refusals: 11/100, KL divergence: 0.0344
+   [Trial 171] Refusals: 17/100, KL divergence: 0.0316
+   [Trial 170] Refusals: 18/100, KL divergence: 0.0283
+   [Trial 196] Refusals: 41/100, KL divergence: 0.0232
+   [Trial  64] Refusals: 43/100, KL divergence: 0.0227
+   [Trial 144] Refusals: 46/100, KL divergence: 0.0217
+   [Trial 159] Refusals: 49/100, KL divergence: 0.0174
+   [Trial 187] Refusals: 53/100, KL divergence: 0.0170
+   [Trial 192] Refusals: 63/100, KL divergence: 0.0157
+   [Trial  73] Refusals: 66/100, KL divergence: 0.0124
+   [Trial 162] Refusals: 79/100, KL divergence: 0.0102
+   [Trial 103] Refusals: 84/100, KL divergence: 0.0097
+   [Trial  60] Refusals: 87/100, KL divergence: 0.0093
+   [Trial  77] Refusals: 90/100, KL divergence: 0.0061
+   [Trial 165] Refusals: 91/100, KL divergence: 0.0058
+   [Trial 183] Refusals: 96/100, KL divergence: 0.0028
+   [Trial  27] Refusals: 98/100, KL divergence: 0.0006
+   Run additional trials
+   Exit program? Which trial do you want to use? [Trial 134] Refusals: 6/100, KL divergence: 0.0527
+WARNING: your terminal doesn't support cursor position requests (CPR).
+Restoring model from trial 134...
+* Parameters:
+  * direction_index = 10.20
+  * attn.o_proj.max_weight = 1.45
+  * attn.o_proj.max_weight_position = 9.02
+  * attn.o_proj.min_weight = 0.84
+  * attn.o_proj.min_weight_distance = 5.37
+  * mlp.down_proj.max_weight = 0.75
+  * mlp.down_proj.max_weight_position = 10.90
+  * mlp.down_proj.min_weight = 0.59
+  * mlp.down_proj.min_weight_distance = 6.23
+* Resetting model...
+* Abliterating...
+? What do you want to do with the decensored model? (Use arrow keys)
+ » Save the model to a local folder
+   Upload the model to Hugging Face
+   Chat with the model
+   Benchmark the model
+   Return to the trial selection menu? What do you want to do with the decensored model? Save the model to a local folder
+WARNING: your terminal doesn't support cursor position requests (CPR).
+? Path to the folder:
+ ? Path to the folder: /home/alpha/lfm25-abliteration/models/LFM2.5-1.2B-Instruct-heretic
+WARNING: your terminal doesn't support cursor position requests (CPR).
+? How do you want to export the model? (Use arrow keys)
+ » Merge the abliteration LoRA and export the full model
+   Export the abliteration LoRA only (can be merged later)? How do you want to export the model? Merge the abliteration LoRA and export the full model
+WARNING: your terminal doesn't support cursor position requests (CPR).
+Saving merged model...
+* Merging LoRA adapters into base model...
+Writing model shards:   0%|                                                                                                                                                      | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.20s/it]Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  1.20s/it]
+* Resetting model...
+* LoRA adapters initialized (target types: out_proj, w2)
+* Abliterating...
+Model saved to /home/alpha/lfm25-abliteration/models/LFM2.5-1.2B-Instruct-heretic.
+[driver] saved pareto index 0 to /home/alpha/lfm25-abliteration/models/LFM2.5-1.2B-Instruct-heretic
+? What do you want to do with the decensored model? (Use arrow keys)
+ » Save the model to a local folder
+   Upload the model to Hugging Face
+   Chat with the model
+   Benchmark the model
+   Return to the trial selection menu? What do you want to do with the decensored model? (Use arrow keys)                                                                                                                                    
+Cancelled by user
+? Which trial do you want to use? (Use arrow keys)
+ » [Trial 134] Refusals: 6/100, KL divergence: 0.0527
+   [Trial 151] Refusals: 7/100, KL divergence: 0.0402
+   [Trial 158] Refusals: 11/100, KL divergence: 0.0344
+   [Trial 171] Refusals: 17/100, KL divergence: 0.0316
+   [Trial 170] Refusals: 18/100, KL divergence: 0.0283
+   [Trial 196] Refusals: 41/100, KL divergence: 0.0232
+   [Trial  64] Refusals: 43/100, KL divergence: 0.0227
+   [Trial 144] Refusals: 46/100, KL divergence: 0.0217
+   [Trial 159] Refusals: 49/100, KL divergence: 0.0174
+   [Trial 187] Refusals: 53/100, KL divergence: 0.0170
+   [Trial 192] Refusals: 63/100, KL divergence: 0.0157
+   [Trial  73] Refusals: 66/100, KL divergence: 0.0124
+   [Trial 162] Refusals: 79/100, KL divergence: 0.0102
+   [Trial 103] Refusals: 84/100, KL divergence: 0.0097
+   [Trial  60] Refusals: 87/100, KL divergence: 0.0093
+   [Trial  77] Refusals: 90/100, KL divergence: 0.0061
+   [Trial 165] Refusals: 91/100, KL divergence: 0.0058
+   [Trial 183] Refusals: 96/100, KL divergence: 0.0028
+   [Trial  27] Refusals: 98/100, KL divergence: 0.0006
+   Run additional trials
+   Exit programWARNING: your terminal doesn't support cursor position requests (CPR).
+? Which trial do you want to use? (Use arrow keys)
+ » [Trial 134] Refusals: 6/100, KL divergence: 0.0527
+   [Trial 151] Refusals: 7/100, KL divergence: 0.0402
+   [Trial 158] Refusals: 11/100, KL divergence: 0.0344
+   [Trial 171] Refusals: 17/100, KL divergence: 0.0316
+   [Trial 170] Refusals: 18/100, KL divergence: 0.0283
+   [Trial 196] Refusals: 41/100, KL divergence: 0.0232
+   [Trial  64] Refusals: 43/100, KL divergence: 0.0227
+   [Trial 144] Refusals: 46/100, KL divergence: 0.0217
+   [Trial 159] Refusals: 49/100, KL divergence: 0.0174
+   [Trial 187] Refusals: 53/100, KL divergence: 0.0170
+   [Trial 192] Refusals: 63/100, KL divergence: 0.0157
+   [Trial  73] Refusals: 66/100, KL divergence: 0.0124
+   [Trial 162] Refusals: 79/100, KL divergence: 0.0102
+   [Trial 103] Refusals: 84/100, KL divergence: 0.0097
+   [Trial  60] Refusals: 87/100, KL divergence: 0.0093
+   [Trial  77] Refusals: 90/100, KL divergence: 0.0061
+   [Trial 165] Refusals: 91/100, KL divergence: 0.0058
+   [Trial 183] Refusals: 96/100, KL divergence: 0.0028
+   [Trial  27] Refusals: 98/100, KL divergence: 0.0006
+   Run additional trials
+   Exit program
