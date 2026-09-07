@@ -14,7 +14,7 @@ Built and run on an RTX PRO 6000 Blackwell (96 GB), Ubuntu 24.04, Python 3.12. S
 | 1.2B | [alpharomercoma/LFM2.5-1.2B-Instruct-heretic](https://huggingface.co/alpharomercoma/LFM2.5-1.2B-Instruct-heretic) | Pareto 0 (trial 133) | 99 → 6 /100 | 0.053 | 1.15 GB, `executorch/` in the repo |
 | 2.6B | [alpharomercoma/LFM2.5-2.6B-heretic](https://huggingface.co/alpharomercoma/LFM2.5-2.6B-heretic) | Pareto 4 (trial 8) | 99 → 7 /100 | 0.034 | 2.45 GB, `executorch/` in the repo |
 
-Both fronts are in `runs/<run>/heretic_pareto_front.txt`. Tool calling was verified intact on both
+Interactive report with both fronts, every trial and the ablation profiles: https://alpharomercoma.github.io/lfm25-abliteration/ (source in `docs/`). Both fronts are also in `runs/<run>/heretic_pareto_front.txt`. Tool calling was verified intact on both
 (`make sanity`). `requirements-*.lock.txt` are written by `make setup` on the target machine.
 
 ## Why these choices
